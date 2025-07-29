@@ -1,34 +1,14 @@
-# 🧙‍♂️ The OverTheWire Bandit Game 🐧
+# 🧪 OverTheWire Bandit Walkthrough (Levels 0-20)
+
+This document covers my walkthrough of the OverTheWire Bandit wargame from Level 0 to Level 20.
 
 ---
 
-## 📚 Table of Contents
+## 🎮 What is Bandit?
 
-- [My Journey with OverTheWire Bandit](#my-journey-with-overthewire-bandit)
-- [Lessons Learnt So Far](#lessons-learnt-so-far)
-- [Challenges Faced](#challenges-faced)
-- [Why You Should Give it a Try](#why-you-should-give-it-a-try)
-- [Bandit Level 0 → Level 1](#bandit-level-0--level-1)
-- [Bandit Level 1 → Level 2](#bandit-level-1--level-2)
-- [Bandit Level 2 → Level 3](#bandit-level-2--level-3)
-- [Bandit Level 3 → Level 4](#bandit-level-3--level-4)
-- [Bandit Level 4 → Level 5](#bandit-level-4--level-5)
-- [Bandit Level 5 → Level 6](#bandit-level-5--level-6)
-- [Bandit Level 6 → Level 7](#bandit-level-6--level-7)
-- [Bandit Level 7 → Level 8](#bandit-level-7--level-8)
-- [Bandit Level 8 → Level 9](#bandit-level-8--level-9)
-- [Bandit Level 9 → Level 10](#bandit-level-9--level-10)
-- [Bandit Level 10 → Level 11](#bandit-level-10--level-11)
-- [Bandit Level 11 → Level 12](#bandit-level-11--level-12)
-- [Bandit Level 12 → Level 13](#bandit-level-12--level-13)
-- [Bandit Level 13 → Level 14](#bandit-level-13--level-14)
-- [Bandit Level 14 → Level 15](#bandit-level-14--level-15)
-- [Bandit Level 15 → Level 16](#bandit-level-15--level-16)
-- [Bandit Level 16 → Level 17](#bandit-level-16--level-17)
-- [Bandit Level 17 → Level 18](#bandit-level-17--level-18)
-- [Bandit Level 18 → Level 19](#bandit-level-18--level-19)
-- [Bandit Level 19 → Level 20](#bandit-level-19--level-20)
-- [Command Summary Sheet](#command-summary-sheet)
+[Bandit](https://overthewire.org/wargames/bandit/) is a Linux-based wargame designed to teach and test command-line skills. Each level requires using shell commands to uncover a password hidden in the file system. The goal is to retrieve the password for the next level by solving practical, real-world style challenges.
+
+This walkthrough includes all levels from 0 to 20, with the exact commands I used and brief insights into what I learned at each step.
 
 ---
 
@@ -40,10 +20,278 @@ For those new to it, Bandit is designed to boost your confidence in the terminal
 
 ---
 
-## 🔐 Bandit Level 0 → Level 1
-*(Example content below)*
+## Level 0
 
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
-cat readme
+```
+---
 
+## Level 0 → Level 1
+
+```bash
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+ls
+cat readme
+copy password
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Learned to SSH into a remote server using a specific port.
+
+---
+
+## Level 1 → Level 2
+
+```bash
+ls
+cat./-
+copy password
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Understood how to read a file named with a special character.
+
+---
+
+## Level 2 → Level 3
+
+```bash
+ls
+cat "spaces in this filename"
+copy password
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Handled filenames with spaces using quotes.
+
+---
+
+## Level 3 → Level 4
+
+```bash
+ls
+cd inhere
+ls -a
+cat -hidden
+copy password
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Used 'ls -a' to list hidden files and access dotfiles.
+
+---
+
+## Level 4 → Level 5
+
+```bash
+ls
+cd inhere
+file./*
+cat ./-file07
+copy password
+ssh bandit5@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Identified human-readable files using the 'file' command.
+---
+
+## Level 5 → Level 6
+
+```bash
+ls
+cd inhere
+find . -type f -size 1033c ! -executable
+cat ./maybehere07/.file2
+copy password
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Filtered files by size and type using the 'find' command.
+
+---
+
+## Level 6 → Level 7
+
+```bash
+find / -user bandit7 -group bandit6 -size 3c 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+copy password
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Worked with file permissions and owners.
+
+---
+
+## Level 7 → Level 8
+
+```bash
+ls
+grep "millionth" data.txt
+copy password
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Extracted data from a file with specific formatting.
+
+---
+
+## Level 8 → Level 9
+
+```bash
+ls
+sort data.txt
+sort data.txt | uniq -u
+copy password
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: 
+
+---
+
+## Level 9 → Level 10
+
+```bash
+ls
+strings data.txt
+strings data.txt | grep '='
+copy password
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Used 'strings' and 'grep' to find values in binary files.
+
+---
+
+## Level 10 → Level 11
+
+```bash
+cat data.txt
+base64 -d data.txt
+copy password
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+paste password
+```
+
+> ✅ Learned: Decoded base64-encoded files.
+---
+
+## Level 11 → Level 12
+
+```bash
+# Commands for level 11 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 11
+
+---
+
+## Level 12 → Level 13
+
+```bash
+# Commands for level 12 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 12
+
+---
+
+## Level 13 → Level 14
+
+```bash
+# Commands for level 13 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 13
+
+---
+
+## Level 14 → Level 15
+
+```bash
+# Commands for level 14 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 14
+
+---
+
+## Level 15 → Level 16
+
+```bash
+# Commands for level 15 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 15
+
+---
+
+## Level 16 → Level 17
+
+```bash
+# Commands for level 16 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 16
+
+---
+
+## Level 17 → Level 18
+
+```bash
+# Commands for level 17 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 17
+
+---
+
+## Level 18 → Level 19
+
+```bash
+# Commands for level 18 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 18
+
+---
+
+## Level 19 → Level 20
+
+```bash
+# Commands for level 19 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 19
+
+---
+
+## Level 20 → Level 21
+
+```bash
+# Commands for level 20 go here
+# Replace with actual commands used
+```
+
+> ✅ Learned: Key concept or command from level 20
